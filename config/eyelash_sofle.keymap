@@ -45,7 +45,7 @@
 
 &mmv {
     time-to-max-speed-ms = <500>;
-    acceleration-exponent = <0.5>;
+    acceleration-exponent = <2>;
 };
 
 &soft_off { hold-time-ms = <2000>; };
@@ -68,6 +68,18 @@
         softoff {
             bindings = <&soft_off>;
             key-positions = <14 40 28>;
+        };
+
+        mo_function {
+            bindings = <&mo 3>;
+            key-positions = <56 30>;
+            slow-release;
+        };
+
+        mo_device {
+            bindings = <&mo 4>;
+            key-positions = <56 30 29>;
+            slow-release;
         };
     };
 
@@ -142,7 +154,7 @@
             bindings = <
 &kp TILDE   &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &mmv MOVE_UP     &kp CARET    &kp AMPS              &kp STAR               &kp LPAR  &kp RPAR          &kp PLUS
 &trans      &trans    &trans  &trans    &trans    &to 4        &mmv MOVE_DOWN   &c_self_inc  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans    &trans            &kp PIPE
-&trans      &trans    &trans  &mo 4     &mo 3     &trans       &mmv MOVE_LEFT   &c_self_dec  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp LT    &kp GREATER_THAN  &kp UNDER
+&trans      &trans    &trans  &trans    &mo 3     &trans       &mmv MOVE_LEFT   &c_self_dec  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp LT    &kp GREATER_THAN  &kp UNDER
 &trans      &trans    &trans  &trans    &trans    &trans       &mmv MOVE_RIGHT  &c_domain    &kp LEFT_BRACE        &kp RIGHT_BRACE        &trans    &trans            &trans
 &kp C_MUTE  &trans    &trans  &trans    &mo 2     &to 0        &mkp LCLK        &trans       &trans                &trans                 &trans    &trans
             >;
@@ -155,7 +167,7 @@
             bindings = <
 &trans  &kp F1  &kp F2  &kp F3  &kp F4                    &kp F5               &trans  &kp F6         &kp F7    &kp F8        &kp F9     &kp F10          &kp F11
 &trans  &trans  &trans  &trans  &kp C_BRIGHTNESS_INC      &kp C_VOLUME_UP      &trans  &kp PAGE_UP    &kp HOME  &kp UP_ARROW  &kp END    &kp PRINTSCREEN  &kp F12
-&trans  &trans  &trans  &trans  &kp C_BRIGHTNESS_DEC      &kp C_VOLUME_DOWN    &trans  &kp PAGE_DOWN  &kp LEFT  &kp DOWN      &kp RIGHT  &trans           &trans
+&trans  &trans  &trans  &mo 4   &kp C_BRIGHTNESS_DEC      &kp C_VOLUME_DOWN    &trans  &kp PAGE_DOWN  &kp LEFT  &kp DOWN      &kp RIGHT  &trans           &trans
 &trans  &trans  &trans  &trans  &kp C_BRIGHTNESS_MINIMUM  &kp C_MUTE           &trans  &trans         &trans    &trans        &trans     &trans           &trans
 &trans  &trans  &trans  &trans  &mo 2                     &trans               &trans  &trans         &trans    &trans        &trans     &trans
             >;
