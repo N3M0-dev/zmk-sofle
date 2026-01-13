@@ -160,7 +160,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - Device
+  - {t: '$$mdi:transfer$$', type: trans}
   - Function
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
@@ -225,7 +225,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - Device
   - {t: '$$mdi:brightness-7$$', type: held alternate}
   - $$mdi:volume-low$$
   - {t: '$$mdi:transfer$$', type: trans}
@@ -291,7 +291,7 @@ layers:
   - {t: Dflt.DV, h: toggle}
   - {t: QWERTY, h: toggle}
   - {t: Symbol, h: toggle, type: held}
-  - {t: Function, h: toggle}
+  - {t: Function, h: toggle, type: held}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:pan-down$$
@@ -323,7 +323,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - '&mkp MB1'
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - {type: held}
   - {t: '$$mdi:transfer$$', type: trans}
   FO:
   - {t: '$$mdi:transfer$$', type: trans}
@@ -523,3 +523,7 @@ layers:
 combos:
 - p: [14, 40, 28]
   k: '&soft_off'
+- p: [56, 30]
+  k: Function
+- p: [56, 30, 29]
+  k: Device
