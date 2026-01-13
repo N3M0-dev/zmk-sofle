@@ -44,11 +44,13 @@
 };
 
 &mmv {
-    time-to-max-speed-ms = <500>;
+    time-to-max-speed-ms = <1000>;
     acceleration-exponent = <2>;
 };
 
 &soft_off { hold-time-ms = <2000>; };
+
+&lt { flavor = "hold-preferred"; };
 
 / {
     scroll_encoder: scroll_encoder {
@@ -126,11 +128,11 @@
 
         Default_Dvorak {
             bindings = <
-&kp GRAVE         &kp N1        &kp N2        &kp N3        &kp N4  &kp N5        &kp UP_ARROW     &kp N6     &kp N7     &kp N8    &kp N9  &kp N0      &kp EQUAL
-&kp TAB           &kp SQT       &kp COMMA     &kp DOT       &kp P   &kp Y         &kp DOWN_ARROW   &kp F      &kp G      &kp C     &kp R   &kp L       &kp FSLH
-&kp LEFT_CONTROL  &kp A         &kp O         &kp E         &kp U   &kp I         &kp LEFT_ARROW   &kp D      &kp H      &kp T     &kp N   &kp S       &kp MINUS
-&kp LSHFT         &kp SEMI      &kp Q         &kp J         &kp K   &kp X         &kp RIGHT_ARROW  &kp B      &kp M      &kp W     &kp V   &kp Z       &kp RSHFT
-&kp C_MUTE        &kp CAPSLOCK  &kp LEFT_ALT  &kp LEFT_GUI  &mo 2   &kp ESCAPE    &kp ENTER        &kp ENTER  &kp SPACE  &kp BSPC  &mo 3   &kp DELETE
+&kp GRAVE         &kp N1        &kp N2        &kp N3        &kp N4       &kp N5        &kp UP_ARROW     &kp N6     &kp N7     &kp N8    &kp N9  &kp N0      &kp EQUAL
+&kp TAB           &kp SQT       &kp COMMA     &kp DOT       &kp P        &kp Y         &kp DOWN_ARROW   &kp F      &kp G      &kp C     &kp R   &kp L       &kp FSLH
+&kp LEFT_CONTROL  &kp A         &kp O         &kp E         &kp U        &kp I         &kp LEFT_ARROW   &kp D      &kp H      &kp T     &kp N   &kp S       &kp MINUS
+&kp LSHFT         &kp SEMI      &kp Q         &kp J         &kp K        &kp X         &kp RIGHT_ARROW  &kp B      &kp M      &kp W     &kp V   &kp Z       &kp RSHFT
+&kp C_MUTE        &kp CAPSLOCK  &kp LEFT_ALT  &kp LEFT_GUI  &lt 2 SPACE  &kp ESCAPE    &kp ENTER        &kp ENTER  &kp SPACE  &kp BSPC  &mo 3   &kp DELETE
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
@@ -140,7 +142,7 @@
         QWERTY {
             bindings = <
 &kp GRAVE  &kp N1    &kp N2    &kp N3    &kp N4  &kp N5     &mmv MOVE_UP     &kp N6     &kp N7     &kp N8     &kp N9   &kp N0      &kp EQUAL
-&kp TAB    &kp Q     &kp W     &kp E     &kp R   &kp T      &mmv MOVE_DOWN   &kp Y      &kp U      &kp I      &kp O    &kp P       &kp BSLH
+&kp TAB    &kp Q     &kp W     &kp E     &kp R   &kp T      &mmv MOVE_DOWN   &kp Y      &kp U      &kp I      &kp O    &kp P       &kp FSLH
 &kp LCTRL  &kp A     &kp S     &kp D     &kp F   &kp G      &mmv MOVE_LEFT   &kp H      &kp J      &kp K      &kp L    &kp SEMI    &kp APOS
 &kp LSHFT  &kp Z     &kp X     &kp C     &kp V   &kp B      &mmv MOVE_RIGHT  &kp N      &kp M      &kp COMMA  &kp DOT  &kp FSLH    &kp RSHFT
 &trans     &kp CAPS  &kp LALT  &kp LGUI  &mo 2   &kp ESC    &mkp LCLK        &kp ENTER  &kp SPACE  &kp BSPC   &mo 3    &kp DELETE
@@ -153,7 +155,7 @@
         Symbol {
             bindings = <
 &kp TILDE   &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &mmv MOVE_UP     &kp CARET    &kp AMPS              &kp STAR               &kp LPAR  &kp RPAR          &kp PLUS
-&trans      &trans    &trans  &trans    &trans    &to 4        &mmv MOVE_DOWN   &c_self_inc  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans    &trans            &kp PIPE
+&trans      &trans    &trans  &trans    &trans    &to 4        &mmv MOVE_DOWN   &c_self_inc  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans    &trans            &kp BACKSLASH
 &trans      &trans    &trans  &trans    &mo 3     &trans       &mmv MOVE_LEFT   &c_self_dec  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp LT    &kp GREATER_THAN  &kp UNDER
 &trans      &trans    &trans  &trans    &trans    &trans       &mmv MOVE_RIGHT  &c_domain    &kp LEFT_BRACE        &kp RIGHT_BRACE        &trans    &trans            &trans
 &kp C_MUTE  &trans    &trans  &trans    &mo 2     &to 0        &mkp LCLK        &trans       &trans                &trans                 &trans    &trans
