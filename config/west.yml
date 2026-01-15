@@ -15,6 +15,9 @@ manifest:
     - name: eyelash_sofle
       url: https://github.com/a741725193/zmk-sofle
       revision: main
+    - name: zmk-mmv-input-processor-min-speed
+      url: https://github.com/N3M0-dev/zmk-mmv-input-processor-min-speed
+      revision: main
     - name: zmk
       remote: zmkfirmware
       revision: v0.3.0
