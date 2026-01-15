@@ -58,7 +58,7 @@
         #input-processor-cells = <0>;
         type = <INPUT_EV_REL>;
         codes = <INPUT_REL_X>, <INPUT_REL_Y>;
-        min-value = <1>;  // 1 pixel/event = ~50-60 px/sec initial speed
+        min-value = <2>;  // 1 pixel/event = ~50-60 px/sec initial speed
                           // (1 px/event * 62.5 events/sec = 62.5 px/sec)
         status = "okay";
     };
