@@ -48,7 +48,7 @@
 &mmv {
     time-to-max-speed-ms = <1000>;
     acceleration-exponent = <2>;
-    trigger-period-ms = <16>;  // ~62.5Hz update rate
+    trigger-period-ms = <10>;
 };
 
 &soft_off { hold-time-ms = <2000>; };
@@ -67,11 +67,11 @@
         codes = <INPUT_REL_X>, <INPUT_REL_Y>;
         
         // Example curve: Start at 50px/s, ramp to 200px/s at 300ms, then to 800px/s at 1000ms
-        curve-points = <0 50>,      // At 0ms: 50 px/sec
-                       <300 200>,   // At 300ms: 200 px/sec
+        curve-points = <0 100>,      // At 0ms: 50 px/sec
+                       <600 200>,   // At 500ms: 300 px/sec
                        <1000 800>;  // At 1000ms: 800 px/sec
         
-        trigger-period-ms = <16>;  // Match MMV's trigger period
+        trigger-period-ms = <10>;  // Match MMV's trigger period
         track-remainders;          // Enable sub-pixel accuracy
         status = "okay";
     };
@@ -103,7 +103,6 @@
         mo_device {
             bindings = <&mo 4>;
             key-positions = <56 30 29>;
-            slow-release;
         };
     };
 
