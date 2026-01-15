@@ -1,4 +1,4 @@
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 800  // Max speed: 800 px/sec
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 800  // 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 20   // 10
 
 #include <input/processors.dtsi>
@@ -44,8 +44,9 @@
 };
 
 &mmv {
-    time-to-max-speed-ms = <1000>;  // 1 second to reach max speed
-    acceleration-exponent = <1>;     // 1 = linear acceleration
+    time-to-max-speed-ms = <1000>;
+    acceleration-exponent = <2>;
+    trigger-period-ms = <10>;
 };
 
 &soft_off { hold-time-ms = <2000>; };
