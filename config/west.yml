@@ -18,6 +18,9 @@ manifest:
     - name: zmk-mmv-input-processor-min-speed
       url: https://github.com/N3M0-dev/zmk-mmv-input-processor-min-speed
       revision: main
+    - name: zmk-input-processor-speed-curve
+      url: https://github.com/N3M0-dev/zmk-input-processor-speed-curve
+      revision: main
     - name: zmk
       remote: zmkfirmware
       revision: v0.3.0
