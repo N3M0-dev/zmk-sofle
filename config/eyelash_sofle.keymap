@@ -1,4 +1,4 @@
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 800  // 600
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 800  // Max speed: 800 px/sec
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 20   // 10
 
 #include <input/processors.dtsi>
@@ -44,8 +44,8 @@
 };
 
 &mmv {
-    time-to-max-speed-ms = <1000>;
-    acceleration-exponent = <2>;
+    time-to-max-speed-ms = <1000>;  // 1 second to reach max speed
+    acceleration-exponent = <1>;     // 1 = linear acceleration
 };
 
 &soft_off { hold-time-ms = <2000>; };
@@ -58,7 +58,8 @@
         #input-processor-cells = <0>;
         type = <INPUT_EV_REL>;
         codes = <INPUT_REL_X>, <INPUT_REL_Y>;
-        min-value = <50>;  // Adjust this value to change minimum speed
+        min-value = <1>;  // 1 pixel/event = ~50-60 px/sec initial speed
+                          // (1 px/event * 62.5 events/sec = 62.5 px/sec)
         status = "okay";
     };
 
