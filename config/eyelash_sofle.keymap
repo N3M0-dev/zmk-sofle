@@ -33,7 +33,7 @@
  * - soft_off: Requires 2 second hold time before triggering soft power off
  */
 
-&mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
+&mmv_input_listener { input-processors = <&zip_min_speed_xy &zip_xy_scaler 2 1>; };
 
 &msc_input_listener { input-processors = <&zip_scroll_scaler 2 1>; };
 
@@ -53,6 +53,15 @@
 &lt { flavor = "hold-preferred"; };
 
 / {
+    zip_min_speed_xy: zip_min_speed_xy {
+        compatible = "zmk,input-processor-min-speed";
+        #input-processor-cells = <0>;
+        type = <INPUT_EV_REL>;
+        codes = <INPUT_REL_X>, <INPUT_REL_Y>;
+        min-value = <50>;  // Adjust this value to change minimum speed
+        status = "okay";
+    };
+
     scroll_encoder: scroll_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;

@@ -1,0 +1,9 @@
+# Copyright (c) 2024 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+config ZMK_INPUT_PROCESSOR_MIN_SPEED
+    bool "Enable minimum speed input processor"
+    default y
+    help
+      Enable the minimum speed input processor which ensures mouse
+      movements have a minimum speed threshold.

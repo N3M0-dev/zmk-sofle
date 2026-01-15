@@ -1,0 +1,36 @@
+/*
+ * Copyright (c) 2024 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+
+/ {
+    zip_min_speed_xy: zip_min_speed_xy {
+        compatible = "zmk,input-processor-min-speed";
+        #input-processor-cells = <1>;
+        type = <INPUT_EV_REL>;
+        codes = <INPUT_REL_X>, <INPUT_REL_Y>;
+        min-value = <50>;  // Default minimum speed value
+        status = "disabled";
+    };
+
+    zip_min_speed_x: zip_min_speed_x {
+        compatible = "zmk,input-processor-min-speed";
+        #input-processor-cells = <1>;
+        type = <INPUT_EV_REL>;
+        codes = <INPUT_REL_X>;
+        min-value = <50>;
+        status = "disabled";
+    };
+
+    zip_min_speed_y: zip_min_speed_y {
+        compatible = "zmk,input-processor-min-speed";
+        #input-processor-cells = <1>;
+        type = <INPUT_EV_REL>;
+        codes = <INPUT_REL_Y>;
+        min-value = <50>;
+        status = "disabled";
+    };
+};
