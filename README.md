@@ -1,29 +1,48 @@
-# Sofle
+# Sofle ZMK Keyboard Configuration
 
-- [中文](README.md)
-- [English](README_EN.md)
+This is my custom ZMK firmware configuration for Sofle split keyboard with advanced mouse movement features.
 
-## 更新列表
+## Features
 
-- 2024/12/21
-  1. 增加zmk-studio支持（只需要刷新左手即可使用）。
-- 2024/10/24
-  1. 修改供电模式，功耗降低。
-  2. 修正RGB供电自动关闭的功能。
-- 2025/3/30 增加睡眠进入时间1小时  增加防抖时间 优化睡眠后功耗 
-- 2025/8/22
-  1. 更新了soft off。当您同时按下 Q、S 和 Z 键并按住 2 秒钟时，键盘将进入深度睡眠状态，无法通过按键唤醒。携带外出时可以使用此功能。激活方式为按一次复位开关。
-  2. 这个月，我还更新了矮轴版本sofle和corne的外壳。框架和底板加厚了，复位开关的开口也进行了调整，可以轻松按下复位开关。目前，我们仍在构思如何设计带有倾斜支架的外壳。如果您仔细检查过 PCB，您会注意到有用于扩展 IO 的预留接口。不知道有没有人能够使用它们，我会尝试一下！
-  3. 右侧键盘屏幕上的GIF动画被移除，这将显著降低右侧键盘的功耗。
+### Custom Speed Curve Input Processor
 
-> 如果您的键盘于2025年8月22之前更新，请更新最新的固件。
->
+This configuration uses a custom piecewise linear speed curve for mouse movement acceleration, providing more precise control than the default exponential/linear acceleration.
 
-## 联系我
+**How it works:**
+- Define time-speed control points (similar to a fan curve)
+- Speed is linearly interpolated between points
+- Sub-pixel precision tracking for smooth movement
+- Automatic timeout detection resets acceleration when keys are released
 
-如需3D打印的模型文件或者键盘有任何异常和故障，请联系380465425@qq.com
+**How to customize the speed curve:**
 
-## Sofle键位图
+Edit the `zip_speed_curve_xy` node in `config/eyelash_sofle.keymap`:
 
-![Sofle键位图](keymap-drawer/eyelash_sofle.svg)
+```c
+zip_speed_curve_xy: zip_speed_curve_xy {
+    compatible = "zmk,input-processor-speed-curve";
+    #input-processor-cells = <0>;
+    type = <INPUT_EV_REL>;
+    codes = <INPUT_REL_X>, <INPUT_REL_Y>;
+    
+    // Customize your speed curve
+    // Just like tweaking a fan curve for your machine
+    curve-points = <0 50>,       // Start: 50 px/s
+                   <300 200>,    // 300ms: 200 px/s
+                   <1000 800>;   // 1 second: 800 px/s
+
+    trigger-period-ms = <10>;    // Update interval (100 Hz)
+    track-remainders;            // Enable sub-pixel precision
+};
+```
+
+### Other Features
+
+- **ZMK Studio support** - Configure keymap via USB (left side only)
+- **Soft off mode** - Hold Q+S+Z for 2 seconds to enter deep sleep
+- **Low power optimization** - Improved battery life
+
+## Keymap
+
+![Sofle_Keymap](keymap-drawer/eyelash_sofle.svg)
 
