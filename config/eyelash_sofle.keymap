@@ -1,4 +1,4 @@
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 800  // 600
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1000  // 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 20   // 10
 
 #include <input/processors.dtsi>
@@ -69,7 +69,7 @@
         // Example curve: Start at 50px/s, ramp to 200px/s at 300ms, then to 800px/s at 1000ms
         curve-points = <0 100>,      // At 0ms: 50 px/sec
                        <600 200>,   // At 500ms: 300 px/sec
-                       <1000 800>;  // At 1000ms: 800 px/sec
+                       <1000 1000>;  // At 1000ms: 800 px/sec
         
         trigger-period-ms = <10>;  // Match MMV's trigger period
         track-remainders;          // Enable sub-pixel accuracy
